@@ -1,0 +1,31 @@
+<form
+  class="form contact-form"
+  [formGroup]="loginForm"
+  (ngSubmit)="onSubmit()"
+>
+  <h5>login/register</h5>
+  <div class="form-row">
+    <label for="username" class="form-label">username</label>
+    <input
+      type="text"
+      class="form-input username-input"
+      id="username"
+      formControlName="name"
+    />
+  </div>
+  <div class="form-row">
+    <label for="password" class="form-label">password</label>
+    <input
+      type="password"
+      class="form-input password-input"
+      id="password"
+      formControlName="password"
+    />
+  </div>
+<!--  <div class="text-small form-alert">there was an error</div>-->
+  <button
+    type="submit"
+    class="btn btn-block"
+    [disabled]="!loginForm.valid"
+  >submit</button>
+</form>
