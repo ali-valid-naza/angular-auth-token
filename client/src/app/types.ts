@@ -1,8 +1,8 @@
 export interface User {
-  name: String;
-  password: String;
+  name: string;
+  password: string;
 }
 
 export interface AuthResponse {
-  token: String;
+  token: string;
 }
