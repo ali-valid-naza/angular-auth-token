@@ -1,17 +1,34 @@
 require('dotenv').config();
 require('express-async-errors');
+const cors = require('cors');
 
 const express = require('express');
 const app = express();
 
-const authRouter = require('./routes/auth')
-const counterRouter = require('./routes/counter')
+const loginRouter = require('./routes/login');
+const counterRouter = require('./routes/counter');
 
-app.use(express.static('./public'));
+// app.use(express.static('./public'));
 app.use(express.json());
+app.use(cors());
 
-app.use('/api/v1/login', authRouter);
-app.use('/api/v1/counter', counterRouter);
+app.get('/', (req, res) => {
+  res.send('<h1>API</h1>');
+});
+
+// app.get('/api/v1/login', (req, res) => {
+//   res.send('<h1>login</h1>');
+// });
+//
+// app.post('/api/v1/login', (req, res) => {
+//   res.status(200).send('<h1>login 200</h1>');
+// });
+
+
+
+app.use('/api/v1', loginRouter);
+app.use('/api/v1', counterRouter);
+
 
 
 const port = process.env.PORT || 3000;
