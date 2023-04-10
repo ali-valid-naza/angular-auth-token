@@ -16,16 +16,6 @@ app.get('/', (req, res) => {
   res.send('<h1>API</h1>');
 });
 
-// app.get('/api/v1/login', (req, res) => {
-//   res.send('<h1>login</h1>');
-// });
-//
-// app.post('/api/v1/login', (req, res) => {
-//   res.status(200).send('<h1>login 200</h1>');
-// });
-
-
-
 app.use('/api/v1', loginRouter);
 app.use('/api/v1', counterRouter);
 

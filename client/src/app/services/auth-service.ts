@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { ApiDataService } from './api-data.service';
-import { BROWSER_STORAGE } from './login/storage';
-import { AuthResponse, User } from './types';
+import { BROWSER_STORAGE } from '../login/storage';
+import { AuthResponse, User } from '../types';
 import {
   AbstractControl,
   ValidationErrors,

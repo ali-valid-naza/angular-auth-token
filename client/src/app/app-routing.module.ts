@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { CounterComponent } from './counter/counter.component';
 // import { aboutGuard } from '../counter.guard';
-import { canActivateCounter } from '../counter.guard';
+import { canActivateCounter } from './guards/counter.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},

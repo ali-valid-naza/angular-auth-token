@@ -1,7 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { BROWSER_STORAGE } from './login/storage';
-import { AuthResponse, User } from './types';
+import { BROWSER_STORAGE } from '../login/storage';
+import { AuthResponse, CounterResponse, User } from '../types';
 import { firstValueFrom, throwError, lastValueFrom } from 'rxjs';
 import { take } from 'rxjs/operators';
 
@@ -37,9 +37,12 @@ export class ApiDataService {
     return this.makeAuthApiCall('login', user);
   }
 
+  public doIncrement(counterValue: CounterResponse): Promise<any> {
+    return this.makeApiIncrementCallPromise('counter', counterValue);
+  }
+
   private async makeAuthApiCall(urlPath: string, user: User)
-    : Promise<unknown>
-  {
+    : Promise<unknown> {
     const url: string = `${ this.apiBaseUrl }/${ urlPath }`;
     // return this.http
     //   .post<User>(url, user)
@@ -47,21 +50,25 @@ export class ApiDataService {
     //     catchError((e) => this.handleError(e))
     //   )
 
-    const value = this.http.post(url, user);
-
     return await lastValueFrom(this.http.post(url, user).pipe(take(1)), {defaultValue: {token: ''}})
       .then((response) => response as AuthResponse)
       .catch(this.handleError);
-
-
-
-    // return promisePostUserData;
-
-
     // return this.http
     //   .post(url, user)
     //   .toPromise()
     //   .then(response => response as AuthResponse)
     //   .catch(this.handleError);
+  }
+
+  private makeApiIncrementCall(urlPath: string, counterValue: number) {
+    const url: string = `${ this.apiBaseUrl }/${ urlPath }`;
+    return this.http.post(url, counterValue);
+  }
+
+  private async makeApiIncrementCallPromise(urlPath: string, counterValue: CounterResponse) {
+    const url: string = `${ this.apiBaseUrl }/${ urlPath }`;
+    return await firstValueFrom(this.http.post(url, counterValue))
+      .then((response) => response)
+      .catch(this.handleError);
   }
 }

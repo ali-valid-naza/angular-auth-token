@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CounterComponent } from './counter/counter.component';
+import { httpInterceptorProviders } from './http-interceptors';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { CounterComponent } from './counter/counter.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [],
+  providers: [httpInterceptorProviders,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
