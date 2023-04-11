@@ -2,17 +2,15 @@ const jwt = require('jsonwebtoken');
 const {BadRequestError} = require('../errors/bad-request');
 
 const login = (req, res) => {
-  console.log(req.body);
   const { username, password } = req.body;
   if (!username || !password) {
     throw new BadRequestError('Please provide login and password');
   }
   const id = new Date().getDate();
-  const token = jwt.sign({ id, username }, process.env.JWT_SECRET,
-    { expiresIn: '30d' });
+  const token = jwt.sign({ id, username }, process.env.JWT_SECRET || 'secret',
+    { expiresIn: process.env.JWT_LIFETIME || '30d'});
 
   res.status(200).json({
-    // msg: `User created`,
     token: token
   });
 };
@@ -21,5 +19,4 @@ module.exports = {
   login,
 }
 
-//todo auth middleware
-// auth response send username ann render it in app
+//todo auth response send username ann render it in app
