@@ -37,8 +37,7 @@ export class ApiDataService {
 
     return await lastValueFrom(this.http.post(url, user).pipe(take(1)), {defaultValue: {token: ''}})
       .then((response) => {
-        console.log(response);
-       return response as AuthResponse;
+        return response as AuthResponse;
       })
       .catch(this.handleError);
   }

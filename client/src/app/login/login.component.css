@@ -15,6 +15,7 @@ button:disabled {
   padding: 2rem 2.5rem;
   margin: 3rem auto;
 }
+
 .form__label {
   display: block;
   font-size: var(--smallText);
@@ -22,6 +23,7 @@ button:disabled {
   text-transform: capitalize;
   letter-spacing: var(--letterSpacing);
 }
+
 .form__input {
   width: 100%;
   padding: 0.375rem 0.75rem;

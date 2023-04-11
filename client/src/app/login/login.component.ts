@@ -32,7 +32,7 @@ export class LoginComponent {
       const {username, password} = this.loginForm.value;
       this.authService.login({username: username, password: password})
         .then(() => this.router.navigateByUrl('/counter'))
-        .catch((message: string) =>  message);
+        .catch((message: string) => message);
     }
   }
 }

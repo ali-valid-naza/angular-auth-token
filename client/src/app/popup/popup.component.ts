@@ -1,4 +1,4 @@
-import { Component, Output, EventEmitter, Input, } from '@angular/core';
+import { Component, EventEmitter, Input, Output, } from '@angular/core';
 import { IncrementService } from '../services/increment.service';
 
 @Component({

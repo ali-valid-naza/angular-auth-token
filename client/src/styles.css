@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600&family=Montserrat&display=swap');
+
 *,
 ::after,
 ::before {
@@ -79,6 +80,7 @@ a {
   letter-spacing: var(--letterSpacing);
   padding: 0.375rem 0.75rem;
 }
+
 .button:hover:enabled {
   background: var(--primary-700);
   box-shadow: var(--shadow-3);
