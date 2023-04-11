@@ -1,0 +1,18 @@
+<div class="popup">
+  <div class="popup__text-block">
+    <span class="popup__text">Current value: {{currentValue}}</span>
+    <span class="popup__text">Next value: {{nextValue}}</span>
+  </div>
+
+  <div class="popup__button-block">
+    <button
+      class="popup__button"
+    (click)="confirm()"
+    >Confirm</button>
+    <button
+      class="popup__button"
+      (click)="cancel()"
+    >Cancel</button>
+  </div>
+</div>
+

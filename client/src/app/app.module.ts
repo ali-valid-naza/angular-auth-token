@@ -8,12 +8,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CounterComponent } from './counter/counter.component';
 import { httpInterceptorProviders } from './http-interceptors';
+import { PopupComponent } from './popup/popup.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    CounterComponent
+    CounterComponent,
+    PopupComponent
   ],
   imports: [
     BrowserModule,
@@ -21,7 +23,10 @@ import { httpInterceptorProviders } from './http-interceptors';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [httpInterceptorProviders,],
+  providers: [
+    httpInterceptorProviders,
+  ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

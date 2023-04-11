@@ -1,4 +1,5 @@
 export interface User {
+  //todo types
   username: string | null | undefined;
   password: string | null | undefined;
 }
@@ -9,8 +10,5 @@ export interface AuthResponse {
 
 export interface CounterResponse {
   counterValue: number;
+  nextValue?: number;
 }
-
-// export class AuthResponse {
-//   token: string;
-// }

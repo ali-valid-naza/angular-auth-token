@@ -10,12 +10,3 @@
 .counter__value {
   margin-right: 1rem;
 }
-
-.counter__button {
-  color: var(--primary-700);
-  background-color: var(--primary-200);
-  border: none;
-  border-radius: 1px;
-  width: 5rem;
-  height: 2rem;
-}
