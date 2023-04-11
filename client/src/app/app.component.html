@@ -1,4 +1,7 @@
-<nav class="nav">
+<nav
+  *ngIf="auth.isLoggedIn()"
+  class="nav">
+  <span class="username">You are logged in as: {{auth.getUserName()}}</span>
   <button class="button"
   (click)="onClick()"
   >

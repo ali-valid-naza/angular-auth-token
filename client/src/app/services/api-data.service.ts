@@ -36,13 +36,16 @@ export class ApiDataService {
     const url: string = `${ this.apiBaseUrl }/${ urlPath }`;
 
     return await lastValueFrom(this.http.post(url, user).pipe(take(1)), {defaultValue: {token: ''}})
-      .then((response) => response as AuthResponse)
+      .then((response) => {
+        console.log(response);
+       return response as AuthResponse;
+      })
       .catch(this.handleError);
   }
 
   private async makeApiIncrementCall(urlPath: string, counterValue: CounterResponse) {
     const url: string = `${ this.apiBaseUrl }/${ urlPath }`;
-    return await firstValueFrom(this.http.post(url, counterValue))
+    return await firstValueFrom(this.http.post(url, counterValue).pipe(take(1)),)
       .then((response) => response)
       .catch(this.handleError);
   }

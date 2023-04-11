@@ -11,12 +11,11 @@ const login = (req, res) => {
     { expiresIn: process.env.JWT_LIFETIME || '30d'});
 
   res.status(200).json({
-    token: token
+    token: token,
+    username: username
   });
 };
 
 module.exports = {
   login,
 }
-
-//todo auth response send username ann render it in app

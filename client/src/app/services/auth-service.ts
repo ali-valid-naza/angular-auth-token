@@ -1,15 +1,7 @@
 import { Inject, Injectable } from '@angular/core';
 import { ApiDataService } from './api-data.service';
 import { BROWSER_STORAGE } from '../login/storage';
-import { AuthResponse, User } from '../types';
-import {
-  AbstractControl,
-  ValidationErrors,
-  ValidatorFn,
-  ɵElement,
-  ɵFormGroupValue,
-  ɵTypedOrUntyped
-} from '@angular/forms';
+import { User } from '../types';
 
 @Injectable({
   providedIn: 'root'
@@ -30,13 +22,25 @@ export class AuthService {
     this.storage.setItem('auth-token', token);
   }
 
+  public getUserName(): string {
+    return <string>this.storage.getItem('username');
+  }
+
+  public saveUserName(username: string): void {
+    this.storage.setItem('username', username);
+  }
+
   public login(user: User) {
     return this.apiDataService.login(user)
-      .then((authResp: any) => this.saveToken(authResp.token));
+      .then((authResp: any) => {
+        this.saveToken(authResp.token);
+        this.saveUserName(authResp.username);
+      });
   }
 
   public logout(): void {
     this.storage.removeItem('auth-token');
+    this.storage.removeItem('username');
   }
 
   public isLoggedIn(): boolean {

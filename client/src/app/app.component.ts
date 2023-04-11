@@ -9,7 +9,7 @@ import { IncrementService } from './services/increment.service';
 })
 export class AppComponent {
   constructor(
-    private auth: AuthService,
+    public auth: AuthService,
     private increment: IncrementService,
   ) {
   }

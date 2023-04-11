@@ -28,19 +28,12 @@ export class LoginComponent {
   }
 
   onSubmit() {
-    console.warn(this.loginForm.value);
-    const {username, password} = this.loginForm.value;
-    // if (this.loginForm.value.username !== '' && this.loginForm.value.password !== '') {
-    //   const {username, password} = this.loginForm.value;
-    //
-    //   this.authService.login({username: username, password: password})
-    //     .subscribe(() => {
-    //       this.router.navigateByUrl('/counter')
-    //     })
-    // }
-    this.authService.login({username: username, password: password})
-      .then(() => this.router.navigateByUrl('/counter'))
-      .catch((message: string) =>  message);
+    if (this.loginForm.value.username && this.loginForm.value.password) {
+      const {username, password} = this.loginForm.value;
+      this.authService.login({username: username, password: password})
+        .then(() => this.router.navigateByUrl('/counter'))
+        .catch((message: string) =>  message);
+    }
   }
 }
 
