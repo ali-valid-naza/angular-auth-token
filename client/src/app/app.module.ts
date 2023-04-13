@@ -14,15 +14,15 @@ import { PopupComponent } from './popup/popup.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    CounterComponent,
-    PopupComponent
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-  ],
+    CounterComponent,
+      ],
   providers: [
     httpInterceptorProviders,
   ],

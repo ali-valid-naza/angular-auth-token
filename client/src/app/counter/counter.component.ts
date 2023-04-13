@@ -20,6 +20,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: true,
 })
 export class CounterComponent implements OnInit, DoCheck, OnDestroy {
   counterValue: number = 0;
