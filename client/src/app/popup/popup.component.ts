@@ -1,10 +1,11 @@
-import { Component, EventEmitter, Input, Output, } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, } from '@angular/core';
 import { IncrementService } from '../services/increment.service';
 
 @Component({
   selector: 'app-popup',
   templateUrl: './popup.component.html',
   styleUrls: ['./popup.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PopupComponent {
   constructor(private increment: IncrementService,) {
